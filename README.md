@@ -1,2 +1,2 @@
 # Practica-3-Programacio
-istema per gestionar associacions d’estudiants a l’ETSE. Pràctica de Programació
+Sistema per gestionar associacions d’estudiants a l’ETSE. Pràctica 3 de Programació
