@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 import dades.Associacio;
 import dades.LlistaAssociacions;
-import dades.Membres;
+import dades.Membre;
 
 public class TestAssociacions {
     static Scanner teclat = new Scanner(System.in);
@@ -87,7 +87,7 @@ public class TestAssociacions {
                         String data_alta = teclat.nextLine();
                         System.out.println("Correu electrònic:");
                         String correu_membre = teclat.nextLine();
-                        Membres membre_afegir = new Membres(nom_membre, data_alta, correu_membre);
+                        Membre membre_afegir = new Membre(nom_membre, data_alta, correu_membre);
                         llista.afegeixMembre(n_associacio,membre_afegir);
                         int nmem = llista.ConsultaPerNom(n_associacio).getN_membres();
                         if(nMembresSegur == nmem){
@@ -107,7 +107,7 @@ public class TestAssociacions {
                     String nom_case6 = teclat.nextLine();
                     Associacio aux_6 = llista.ConsultaPerNom(nom_case6);
                     int num_membres6 = aux_6.getN_membres();
-                    Membres[] taulaMembres = aux_6.ConsultaMembres();
+                    Membre[] taulaMembres = aux_6.ConsultaMembres();
                     for(int i = 0; i < num_membres6; i++){
                         System.out.println("Membre "+(i+1)+": "+taulaMembres[i].toString());
                     }

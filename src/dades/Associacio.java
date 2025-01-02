@@ -7,9 +7,9 @@ public class Associacio{
     private String titulacio;       //Sigles de la titulació (GEB,GEI,GESST...)
     private int n_membres;          //Nombre de membres de l'associació
     
-    //Parte de codigo que funcionará cuando tenga la clase "Membres"
+    //Parte de codigo que funcionará cuando tenga la clase "Membre"
     
-    private Membres[] membres;      //Llista de membres de l'associació
+    private Membre[] membres;      //Llista de membres de l'associació
     /*private Alumne president;       //President de l'associació    
     private Alumne secretari;       //Secretari de l'associació
     private Alumne tresorer;        //Tresorer de l'associació*/
@@ -26,7 +26,7 @@ public class Associacio{
         this.nom = nom;
         this.correu = correu;
         this.titulacio = titulacio;
-        membres = new Membres[50];
+        membres = new Membre[50];
     }
 
     /**
@@ -74,18 +74,18 @@ public class Associacio{
 		return aux;
 	}
 
-    public void afegeixMembres(Membres membre_af){
+    public void afegeixMembre(Membre membre_af){
         if(n_membres < membres.length){
             membres[n_membres] = membre_af.copia();
             n_membres++;
         }
     }
 
-    public Membres[] ConsultaMembres(){
-        Membres[] auxMembres = new Membres[n_membres];
+    public Membre[] ConsultaMembre(){
+        Membre[] auxMembre = new Membre[n_membres];
         for(int i = 0; i < n_membres; i++){
-            auxMembres[i] = membres[i].copia();
+            auxMembre[i] = membres[i].copia();
         }
-        return auxMembres;
+        return auxMembre;
     }
 }

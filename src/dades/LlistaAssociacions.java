@@ -72,7 +72,7 @@ public class LlistaAssociacions {
         }
     }
 
-    public void afegeixMembre(String nom, Membres membre){
+    public void afegeixMembre(String nom, Membre membre){
         for(int i = 0; i < n_associacions; i++){
             if(nom.compareTo(llista[i].getNom()) == 0){
                 llista[i].afegeixMembres(membre);
