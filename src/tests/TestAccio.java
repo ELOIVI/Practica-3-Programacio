@@ -44,7 +44,7 @@ public class TestAccio {
 
                     //Verifiquem amb el regex
                     if (!codi.matches("(?i)^[A-Z]{3}[0-9]{3}$")) {
-                        if (codi.lenght != 6) {
+                        if (codi.length() != 6) {
                             System.out.println("El codi ha de tenir exactament 6 caràcters.");
                         }
                         //introduïm procediment per detectar que és exactament el que falta, si lletres, o números, i el num que falten.

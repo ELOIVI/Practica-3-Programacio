@@ -1,3 +1,4 @@
+package tests;
 import java.util.Scanner;
 
 import dades.Associacio;
@@ -107,7 +108,7 @@ public class TestAssociacions {
                     String nom_case6 = teclat.nextLine();
                     Associacio aux_6 = llista.ConsultaPerNom(nom_case6);
                     int num_membres6 = aux_6.getN_membres();
-                    Membre[] taulaMembres = aux_6.ConsultaMembres();
+                    Membre[] taulaMembres = aux_6.ConsultaMembre();
                     for(int i = 0; i < num_membres6; i++){
                         System.out.println("Membre "+(i+1)+": "+taulaMembres[i].toString());
                     }
