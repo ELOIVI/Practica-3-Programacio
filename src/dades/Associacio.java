@@ -1,4 +1,4 @@
-/*package (Nombre de la carpeta con los demás archivos)*/
+package dades;
 
 public class Associacio{
 

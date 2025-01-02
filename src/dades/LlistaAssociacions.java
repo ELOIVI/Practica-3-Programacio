@@ -1,4 +1,4 @@
-
+package dades;
 
 public class LlistaAssociacions {
 

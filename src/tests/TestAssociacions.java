@@ -1,5 +1,9 @@
 import java.util.Scanner;
 
+import dades.Associacio;
+import dades.LlistaAssociacions;
+import dades.Membres;
+
 public class TestAssociacions {
     static Scanner teclat = new Scanner(System.in);
 
@@ -105,13 +109,13 @@ public class TestAssociacions {
                     int num_membres6 = aux_6.getN_membres();
                     Membres[] taulaMembres = aux_6.ConsultaMembres();
                     for(int i = 0; i < num_membres6; i++){
-                        System.out.println("Membre "+(i+1)+": "+taulaMembres[i].ToStringMembres());
+                        System.out.println("Membre "+(i+1)+": "+taulaMembres[i].toString());
                     }
                     break;
                 case 7:
                     System.out.println("Surtint del programa...");
                     continuar = false;
-                    break;
+                    break;  
                 default:
                     System.out.println("Opció no vàlida...");
                     break;
