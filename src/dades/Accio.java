@@ -17,12 +17,11 @@ import excepcions.AssociacionsInvalidesException;
 public abstract class Accio {
     private static int numAccio = 100; //Volem que totes les instàncies utilitzin el mateix valor
 
-    // Una vegada inicialitzats, no cal que canviïn, per tant, els declarem finals
-    private final String codi;
-    private final String titol;
-    private final Associacio[] associacions;
-    private  Membre responsable;
-    private final int numAssociacions;
+    private String codi;
+    private String titol;
+    private Associacio[] associacions;
+    private Membre responsable;
+    private int numAssociacions;
 
     /**
      * Constructor per inicialitzar una acció amb un títol, un conjunt d'associacions i un responsable.
@@ -99,10 +98,15 @@ public abstract class Accio {
      * 
      * @return Array d'associacions associades a l'acció
      */
-    public Associacio[] getAssociacions() {
-        Associacio[] aux = new Associacio[numAssociacions];
-        System.arraycopy(associacions, 0, aux, 0, numAssociacions);
-        return aux;
+    public Associacio[] getAssociacions() { 
+        Associacio[] result;
+        if (associacions == null) {
+            result = new Associacio[0];
+        } else {
+            result = new Associacio[numAssociacions];
+            System.arraycopy(associacions, 0, result, 0, numAssociacions);
+        }
+        return result;
     }
     
     /**

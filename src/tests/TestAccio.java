@@ -1,5 +1,6 @@
 package tests;
 import java.util.Scanner;
+import java.util.regex.*;
 
 import dades.*;
 
@@ -36,13 +37,28 @@ public class TestAccio {
 
             switch (menu) {
                 case 1: // Consulta per codi
+                    
+                    System.out.println("\nTingui en compte que ha d'estar format per tres lletres i tres números.");
                     System.out.println("Escriu el codi de l'acció:");
                     String codi = teclat.nextLine();
-                    Accio accioConsultada = llista.consultaPerCodi(codi);
+
+                    //Verifiquem amb el regex
+                    if (!codi.matches("(?i)^[A-Z]{3}[0-9]{3}$")) {
+                        if (codi.lenght != 6) {
+                            System.out.println("El codi ha de tenir exactament 6 caràcters.");
+                        }
+                        //introduïm procediment per detectar que és exactament el que falta, si lletres, o números, i el num que falten.
+                        else {
+
+                        }
+                        
+                        
+                        Accio accioConsultada = llista.consultaPerCodi(codi);
                     if (accioConsultada == null) {
                         System.out.println("No s'ha trobat cap acció amb aquest codi...");
                     } else {
                         System.out.println(accioConsultada);
+                        }
                     }
                     break;
 
@@ -104,3 +120,4 @@ public class TestAccio {
         }
     }
 }
+
