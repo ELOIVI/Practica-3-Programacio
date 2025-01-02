@@ -76,11 +76,12 @@ public class TestAssociacions {
                     System.out.println("Escriu el nom de la associació a la qual afegir un membre:");
                     String n_associacio = teclat.nextLine();
                     Associacio aux = llista.ConsultaPerNom(n_associacio);
-                    int nMembresSegur = aux.getN_membres();
                     if(aux == null){
                         System.out.println("No s'ha trobat cap associació amb aquest nom");
                         break;
-                    } else {
+                    }
+                    int nMembresSegur = aux.getN_membres();
+                    {
                         System.out.println("Inserta la informació del nou membre:");
                         System.out.println("Nom:");
                         String nom_membre = teclat.nextLine();

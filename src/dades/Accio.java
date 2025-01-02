@@ -130,10 +130,10 @@ public abstract class Accio {
     @Override
     public String toString() {
         return "Accio {" +
-               "Codi='" + codi + '\'' +
-               ", Títol='" + titol + '\'' +
-               ", Responsable=" + (responsable != null ? responsable.getNom() : "No assignat") +
-               ", Num Associacions=" + numAssociacions +
+               "Codi = '" + codi + '\'' +
+               ", Títol = '" + titol + '\'' +
+               ", Responsable = " + (responsable != null ? responsable.getNom() : "No assignat") +
+               ", Num Associacions = " + numAssociacions +
                '}';
     }
     }

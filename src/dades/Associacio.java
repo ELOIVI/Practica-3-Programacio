@@ -84,9 +84,9 @@ public class Associacio{
     public Membre[] ConsultaMembre(){
         Membre[] auxMembre = new Membre[n_membres];
         for(int i = 0; i < n_membres; i++){
-            auxMembres[i] = membres[i].copia();
+            auxMembre[i] = membres[i].copia();
         }
-        return auxMembres;
+        return auxMembre;
     }
 }
 

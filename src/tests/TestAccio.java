@@ -1,6 +1,5 @@
 package tests;
 import java.util.Scanner;
-import java.util.regex.*;
 
 import dades.*;
 
