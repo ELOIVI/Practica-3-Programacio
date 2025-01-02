@@ -40,6 +40,14 @@ public class Membre {
     public boolean isActiu() {
         return dataBaixa == null;
     }
+    
+    public Membre copia() {
+        return new Membre(alias, emailInstitucional, dataAlta);
+    }
+
+    public String getNom() {
+        return alias;
+    }
 
     @Override
     public String toString() {
