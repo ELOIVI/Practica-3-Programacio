@@ -2,6 +2,10 @@ package aplicacioIG;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.util.*;
 import dades.*;
 import excepcions.ErrorAccioException;
@@ -113,7 +117,7 @@ public class AplicacioIG extends JFrame {
     }
 
     private static LlistaAccions carregarDades() throws ErrorFitxerException, ErrorAccioException {
-        String rutaFitxer = "data/accions.txt";  
+        String rutaFitxer = "src/data/accions.txt";  
         LlistaAccions llista = new LlistaAccions(100);
         llista.carregarAccionsDesFitxer(rutaFitxer);
         return llista;
@@ -142,12 +146,14 @@ public class AplicacioIG extends JFrame {
         return demostracions;
     }
 
-    private static Associacio[] carregarAssociacions() {
-        return new Associacio[] {
-            new Associacio("IEEE", "ieee@example.com", "GEB", 10),
-            new Associacio("ACM", "acm@example.com", "GEI", 15),
-            new Associacio("AESS", "aess@example.com", "GESST", 5)
-        };
+    private static Associacio[] carregarAssociacions() throws ErrorFitxerException {
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("src/data/fitxer_associacions.txt"))) {
+        // Leemos las asociaciones desde el archivo serializado
+        Associacio[] associacions = (Associacio[]) ois.readObject();
+        return associacions;
+    } catch (IOException | ClassNotFoundException e) {
+        throw new ErrorFitxerException("Error al llegir l'arxiu d'associacions", e);
     }
+}
     
 }

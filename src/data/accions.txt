@@ -1,0 +1,4 @@
+CODI_001;Conferencia sobre IA;Juan Pérez;3
+CODI_002;Taller de programación;Ana García;2
+CODI_003;Seminario de ciberseguridad;Carlos López;4
+s
