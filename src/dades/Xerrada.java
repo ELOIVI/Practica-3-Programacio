@@ -2,7 +2,7 @@ package dades;
 
 import java.util.Arrays;
 
-public class Xerrada extends Accions {
+public class Xerrada extends Accio {
 
     private String data; 
     private Membre [] infoMembres; // taula de tipus Membres on s'emmagatzema la informacio dels membres que imparteixen la xerrada
@@ -13,13 +13,14 @@ public class Xerrada extends Accions {
     private int numElem; // variable que controla el nombre de membres que imparteixen la xerrada
 
 
-     public Xerrada (String data, int numAssistents, int valoracio, int codiIden, String titol, String responsableAccio){
-        super(codiIden, titol, responsableAccio);
-        this.data = data; 
+    public Xerrada(String data, int numAssistents, int valoracio, String titol, Membre responsableAccio, Associacio[] associacions) {
+        super(titol, associacions, responsableAccio); // Aquí llamamos al constructor de Accio con los parámetros correctos
+        this.data = data;
         this.numAssistents = numAssistents;
         this.valoracio = valoracio;
         numElem = 0;
-     }
+    }
+    
 
     public void setData(String data) {
         this.data = data;
