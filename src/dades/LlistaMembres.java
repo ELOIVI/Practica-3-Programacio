@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import dades.*;
 import excepcions.ExcepcioMembreJaExisteix;
 import excepcions.ExcepcioMembreNoTrobat;
 
@@ -75,7 +74,6 @@ public class LlistaMembres {
                 String alias = dades[0];
                 String email = dades[1];
                 String dataAlta = dades[2];
-                String dataBaixa = "null".equals(dades[3]) ? null : dades[3];
     
                 if (dades.length > 4) { // És un Alumne
                     String ensenyament = dades[4];
@@ -101,15 +99,20 @@ public class LlistaMembres {
     
         for (int i = 0; i < count; i++) {
             if (membres[i] != null) {
-                if (membres[i].getAssociacions().contains(nomAssociacio)) {
-                    String tipus = membres[i].getTipus(); 
-                    if (filtre.equalsIgnoreCase("ambdós") || filtre.equalsIgnoreCase(tipus)) {
-                        System.out.println(membres[i]);
-                    }
+                Associacio[] associacions = membres[i].getAssociacions();
+                boolean pertany = false;
+    
+                for (int j = 0; j < associacions.length && !pertany; j++) {
+                    pertany = associacions[j] != null && associacions[j].getNom().equals(nomAssociacio);
+                }
+    
+                if (pertany && (filtre.equalsIgnoreCase("ambdós") || filtre.equalsIgnoreCase(membres[i].getTipus()))) {
+                    System.out.println(membres[i]);
                 }
             }
         }
     }
+    
 
 
 

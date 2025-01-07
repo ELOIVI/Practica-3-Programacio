@@ -8,7 +8,7 @@ public class Associacio{
     private int n_membres;          //Nombre de membres de l'associació
     
     
-    private Membre[] membres;      //Llista de membres de l'associació
+     private Membre[] membres;      //Llista de membres de l'associació
     /*private Alumne president;       //President de l'associació    
     private Alumne secretari;       //Secretari de l'associació
     private Alumne tresorer;        //Tresorer de l'associació*/

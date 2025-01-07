@@ -1,16 +1,23 @@
 package dades;
 
+
 public class Membre {
     private String alias;
     private String emailInstitucional;
     private String dataAlta;
     private String dataBaixa;
+    private Associacio[] associacions;
+    private int numAssociacions;
+
 
     public Membre(String alias, String emailInstitucional, String dataAlta) {
         this.alias = alias;
         this.emailInstitucional = emailInstitucional;
         this.dataAlta = dataAlta;
         this.dataBaixa = null;
+        this.associacions = new Associacio[10];
+        this.numAssociacions = associacions.length;      
+
     }
 
     public String getAlias() {
@@ -31,6 +38,17 @@ public class Membre {
 
     public String getDataBaixa() {
         return dataBaixa;
+    }
+
+    public Associacio[] getAssociacions() { 
+        Associacio[] result;
+        if (associacions == null) {
+            result = new Associacio[0];
+        } else {
+            result = new Associacio[numAssociacions];
+            System.arraycopy(associacions, 0, result, 0, numAssociacions);
+        }
+        return result;
     }
 
     public void setDataBaixa(String dataBaixa) {
