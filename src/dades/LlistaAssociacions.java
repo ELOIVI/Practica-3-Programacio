@@ -1,5 +1,9 @@
 package dades;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
 public class LlistaAssociacions {
 
     private int n_associacions;
@@ -79,5 +83,15 @@ public class LlistaAssociacions {
             }
         }
     }
+
+    public void guardarAssociacionsEnFitxer(String nomFitxer) {
+    try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(nomFitxer))) {
+        out.writeObject(llista);
+        System.out.println("Associacions guardades correctament al fitxer: " + nomFitxer);
+    } catch (IOException e) {
+        System.out.println("Error en guardar les associacions: " + e.getMessage());
+    }
+}
+
 
 }

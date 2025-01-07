@@ -2,21 +2,23 @@ package aplicacioIG;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.*;
+import java.util.Arrays;
 import dades.*;
 
 public class PanellDemostracions extends JPanel {
     private static final long serialVersionUID = 1L;
 
     private JButton[] bDemostracions;
+    private PanellDetall panellDetall;  // Añadimos una referencia al PanellDetall
 
-    public PanellDemostracions() {
+    public PanellDemostracions(PanellDetall panellDetall) {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.panellDetall = panellDetall;  // Inicializamos la referencia
     }
 
     public void actualitzarDemostracions(Associacio[] associacions, Demostracio[] demostracionsActives, JCheckBox[] checkAssociacions) {
-        this.removeAll();
-
+        this.removeAll();  // Limpiar el panel
+    
         // Obtener las asociaciones seleccionadas
         Associacio[] associacionsSeleccionades = new Associacio[checkAssociacions.length];
         int count = 0;
@@ -25,13 +27,13 @@ public class PanellDemostracions extends JPanel {
                 associacionsSeleccionades[count++] = associacions[i];
             }
         }
-        
+    
         // Filtrar las demostraciones por las asociaciones seleccionadas
         Demostracio[] demostracionsFiltrades = Arrays.stream(demostracionsActives)
             .filter(demo -> Arrays.stream(demo.getAssociacions())
                 .anyMatch(assoc -> Arrays.asList(associacionsSeleccionades).contains(assoc)))
             .toArray(Demostracio[]::new);
-        
+    
         // Crear botones para las demostraciones filtradas
         bDemostracions = new JButton[demostracionsFiltrades.length];
         for (int i = 0; i < demostracionsFiltrades.length; i++) {
@@ -39,16 +41,17 @@ public class PanellDemostracions extends JPanel {
             bDemostracions[i] = createDemostracioButton(demo);
             this.add(bDemostracions[i]);
         }
-
+    
         if (demostracionsFiltrades.length == 0) {
             JLabel noResults = new JLabel("No hi ha demostracions actives per mostrar");
             noResults.setAlignmentX(Component.CENTER_ALIGNMENT);
             this.add(noResults);
         }
-
-        this.revalidate();
-        this.repaint();
+    
+        this.revalidate();  // Asegúrate de llamar a revalidate para que se actualicen los componentes
+        this.repaint();     // Vuelve a dibujar el panel
     }
+    
 
     private JButton createDemostracioButton(Demostracio demo) {
         JButton button = new JButton();
@@ -69,7 +72,7 @@ public class PanellDemostracions extends JPanel {
     }
 
     private void mostrarDetalls(Demostracio demo) {
-        // Actualiza el panel de detalles en la clase principal
-        // Este método podría interactuar con el `PanellDetall` directamente si fuera necesario
+        // Llamamos al método mostrarDetalls del PanellDetall
+        panellDetall.mostrarDetalls(demo);
     }
 }

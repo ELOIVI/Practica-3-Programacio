@@ -1,6 +1,6 @@
 package excepcions;
 
-public class AssociacioPlenaException extends IllegalArgumentException {
+public class AssociacioPlenaException extends Exception {
     public AssociacioPlenaException(String missatge) {
         super(missatge);
     }

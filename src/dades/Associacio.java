@@ -12,7 +12,6 @@ public class Associacio implements Serializable {
     private String correu;          // Correu electrònic de contacte
     private String titulacio;       // Sigles de la titulació (GEB, GEI, GESST...)
     private int n_membres;          // Nombre de membres de l'associació
-    
     private Membre[] membres;       // Llista de membres de l'associació
 
     /**
